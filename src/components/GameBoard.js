@@ -8,16 +8,9 @@ function GameBoard(props) {
   return (
     <React.Fragment>
       <WinBar gameStatus={props.gameStatus} />
-      <ResetButton gameStatus={props.gameStatus} setGameStatus={props.setGameStatus} />
-      <div className="gameBoard">
-        <button
-          className="reset-button"
-          onClick={() => {
-            props.gameSub('reset');
-          }}
-        >
-          Reset
-        </button>
+      <LoseBar gameStatus={props.gameStatus} setGameStatus={props.setGameStatus} />
+
+      <div className="gameboard">
         {shuffledArray.map((e) => {
           return (
             <CharacterCard
@@ -34,13 +27,13 @@ function GameBoard(props) {
   );
 }
 
-function ResetButton(props) {
+function LoseBar(props) {
   if (props.gameStatus !== 'lost') {
     return null;
   }
   return (
     <div className="reset-bar">
-      <span className="gamelost-text">You Lost</span>
+      <span className="lost-bar">You Lost</span>
     </div>
   );
 }

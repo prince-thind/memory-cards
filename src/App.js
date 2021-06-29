@@ -50,6 +50,14 @@ function App() {
         <h1 className="heading">Memory Cards</h1>
         <h2 className="status-bar">
           Score: {score} | BestScore: {bestScore}
+          <button
+        className="reset-button"
+        onClick={() => {
+          gameSub('reset');
+        }}
+      >
+        Reset
+      </button>
         </h2>
       </header>
       <GameBoard
