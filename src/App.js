@@ -5,7 +5,7 @@ import images from './components/images.js';
 import uniqid from 'uniqid';
 
 let characterArrays = [];
-for (let i = 0; i <= 11; i++) {
+for (let i = 0; i < images.length; i++) {
   characterArrays.push({ src: images[i], key: uniqid() });
 }
 
@@ -38,16 +38,19 @@ function App() {
       setScore(score + 1);
       return;
     }
+    if (signal === 'reset') {
+      setScore(0);
+      setGameStatus('running');
+    }
   }
 
   return (
     <div className="App">
       <header>
         <h1 className="heading">Memory Cards</h1>
-        <h2 className="heading-intro">Goal: Click on every card only once</h2>
-        <h3 className="status-bar">
-          BestScore: {bestScore} Score: {score}
-        </h3>
+        <h2 className="status-bar">
+          Score: {score} | BestScore: {bestScore}
+        </h2>
       </header>
       <GameBoard
         characterArrays={characterArrays}

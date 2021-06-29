@@ -10,6 +10,14 @@ function GameBoard(props) {
       <WinBar gameStatus={props.gameStatus} />
       <ResetButton gameStatus={props.gameStatus} setGameStatus={props.setGameStatus} />
       <div className="gameBoard">
+        <button
+          className="reset-button"
+          onClick={() => {
+            props.gameSub('reset');
+          }}
+        >
+          Reset
+        </button>
         {shuffledArray.map((e) => {
           return (
             <CharacterCard
@@ -32,15 +40,7 @@ function ResetButton(props) {
   }
   return (
     <div className="reset-bar">
-      <span className="gamelost-text">Game Lost</span>
-      <button
-        className="reset-button"
-        onClick={() => {
-          props.setGameStatus('running');
-        }}
-      >
-        Reset
-      </button>
+      <span className="gamelost-text">You Lost</span>
     </div>
   );
 }
@@ -51,6 +51,5 @@ function WinBar(props) {
   }
   return <div className="win-bar">You Won!</div>;
 }
-
 
 export default GameBoard;
