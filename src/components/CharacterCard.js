@@ -4,24 +4,27 @@ function CharacterCard(props) {
   const [clickedStatus, setClickedStatus] = useState(false);
 
   useEffect(() => {
-    if (props.gameStatus === 'lost') {
+    if (props.gameStatus !== 'running') {
       setClickedStatus(false);
     }
   }, [props.gameStatus]);
 
   function handleClick(e) {
-    if (clickedStatus || props.gameStatus === 'lost') {
-      props.updateGameStatus('lost');
+    if (props.gameStatus !== 'running') {
+      return;
+    }
+    if (clickedStatus === true) {
+      props.gameSub('lost');
     } else {
       setClickedStatus(true);
-      props.updateGameStatus('increment');
+      props.gameSub('increment');
     }
   }
 
   return (
-      <div className="character" onClick={handleClick}>
-        {props.name}
-      </div>
+    <div className="character" onClick={handleClick}>
+      <img src={props.src} alt="Error fetching images" className="character-img" />
+    </div>
   );
 }
 

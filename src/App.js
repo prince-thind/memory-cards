@@ -1,21 +1,12 @@
-import { useState, useEffect } from 'react';
 import './App.css';
+import { useState, useEffect } from 'react';
 import GameBoard from './components/GameBoard.js';
+import images from './components/images.js';
+import uniqid from 'uniqid';
 
-function ResetButton(props) {
-  if (props.gameStatus !== 'lost') {
-    return null;
-  }
-  return (
-    <button
-      className="reset-button"
-      onClick={() => {
-        props.setGameStatus('running');
-      }}
-    >
-      Reset
-    </button>
-  );
+let characterArrays = [];
+for (let i = 0; i <= 11; i++) {
+  characterArrays.push({ src: images[i], key: uniqid() });
 }
 
 function App() {
@@ -27,7 +18,7 @@ function App() {
     if (score > bestScore) {
       setBestScore(score);
     }
-    if (score >= 12) {
+    if (score >= characterArrays.length) {
       setGameStatus('won');
     }
   }, [score, bestScore]);
@@ -57,10 +48,13 @@ function App() {
         <h3 className="status-bar">
           BestScore: {bestScore} Score: {score}
         </h3>
-        <ResetButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
       </header>
-      <p>{gameStatus}</p>
-      <GameBoard gameStatus={gameStatus} updateGameStatus={gameSub} />
+      <GameBoard
+        characterArrays={characterArrays}
+        gameStatus={gameStatus}
+        gameSub={gameSub}
+        setGameStatus={setGameStatus}
+      />
     </div>
   );
 }
