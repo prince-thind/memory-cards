@@ -18,12 +18,13 @@ function CharacterCard(props) {
     } else {
       setClickedStatus(true);
       props.gameSub('increment');
+      props.gameSub('shuffle');
     }
   }
 
   return (
     <div className="character" onClick={handleClick}>
-      <img src={props.src} alt="Error fetching images" className="character-img" />
+      <img src={props.src} alt="Animal Card" className="character-img" />
     </div>
   );
 }
