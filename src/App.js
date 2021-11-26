@@ -38,6 +38,7 @@ function App() {
         gameStatus={gameStatus}
         gameSub={gameSub}
       />
+      <footer className="footer">Copyright &copy; Prince Thind</footer>
     </div>
   );
 

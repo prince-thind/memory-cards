@@ -2,11 +2,20 @@
   padding: 0;
   margin: 0;
 }
-body {
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
   text-align: center;
   color: white;
   background-color: rgb(10, 10, 10);
 }
+main{
+  flex:1;
+}
+
 .heading {
   padding: 0.5rem;
   background-color: hsl(240, 70%, 20%);
@@ -39,15 +48,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding:1rem;
+  padding: 1rem;
   border: 1px solid black;
 }
 .win {
-background-color: hsl(120, 50%, 20%);
+  background-color: hsl(120, 50%, 20%);
 }
 .lost {
-background-color: hsl(0, 50%, 20%);
-
+  background-color: hsl(0, 50%, 20%);
 }
 .reset-button {
   display: block;
@@ -86,15 +94,10 @@ background-color: hsl(0, 50%, 20%);
   background-color: hsl(120, 70%, 15%);
   cursor: pointer;
 }
-.character-img {
-  width: 12rem;
-  height: 12rem;
-  background-color: white;
-  border: 2px solid black;
-  filter: brightness(75%);
-}
-.character-img:hover {
-  opacity: 1;
+.footer{
+  background-color: black;
+  padding:0.5rem;
+  border-top: 2px solid white;
 }
 
 @media only screen and (max-width: 760px) {

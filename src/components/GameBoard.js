@@ -3,7 +3,7 @@ import CharacterCard from "./CharacterCard";
 
 function GameBoard(props) {
   return (
-    <React.Fragment>
+    <main>
       <div className="gameboard">
         {props.characterArr.map((character) => {
           return (
@@ -17,7 +17,7 @@ function GameBoard(props) {
           );
         })}
       </div>
-    </React.Fragment>
+    </main>
   );
 }
 
