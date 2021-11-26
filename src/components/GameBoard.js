@@ -12,7 +12,7 @@ function GameBoard(props) {
               name={e.name}
               gameStatus={props.gameStatus}
               gameSub={props.gameSub}
-              src={e.src}
+              icon={e.icon}
             />
           );
         })}

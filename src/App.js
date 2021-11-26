@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import GameBoard from "./components/GameBoard";
-import images from "./components/images";
+// import images from "./components/images";
+import icons from "./lib/icons";
 import InfoBar from "./components/InfoBar";
 import _ from "loadsh";
 import uniqid from "uniqid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [bestScore, setBestScore] = useState(0);
@@ -13,8 +16,8 @@ function App() {
 
   function initCharacterArr() {
     let arr = [];
-    for (let i = 0; i < images.length; i++) {
-      arr.push({ src: images[i], key: uniqid() });
+    for (let i = 0; i < icons.length; i++) {
+      arr.push({ icon: icons[i], key: uniqid() });
     }
     return arr;
   }
@@ -67,7 +70,7 @@ function App() {
               gameSub("reset");
             }}
           >
-            Reset
+           <FontAwesomeIcon icon={faRedo}/>
           </button>
         </h2>
         <InfoBar gameStatus={gameStatus} setGameStatus={setGameStatus} />

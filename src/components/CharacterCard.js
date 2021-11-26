@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 
 function CharacterCard(props) {
@@ -23,8 +24,9 @@ function CharacterCard(props) {
   }
 
   return (
-    <div className="character" onClick={handleClick}>
-      <img src={props.src} alt="Animal Card" className="character-img" />
+    <div  onClick={handleClick}>
+      <FontAwesomeIcon icon={props.icon} className="character"/>
+      {/* <img src={props.src} alt="Animal Card" className="character-img" /> */}
     </div>
   );
 }
