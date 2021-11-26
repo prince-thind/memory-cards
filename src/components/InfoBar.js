@@ -1,11 +1,20 @@
-function InfoBar(props) {
-    if (props.gameStatus === 'lost') {
-      return (
-          <div className="lost-bar bar">You Lost</div>
-      );
-    } else if (props.gameStatus === 'won') {
-      return <div className="win-bar bar">You Won!</div>;
-    } else return null;
-  }
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
-  export default InfoBar;
+function InfoBar({ bestScore, score, gameSub }) {
+  return (
+    <h2 className="status-bar bar">
+      BestScore: {bestScore} <div>Score: {score} </div>
+      <button
+        className="reset-button"
+        onClick={() => {
+          gameSub("reset");
+        }}
+      >
+        <FontAwesomeIcon icon={faRedo} />
+      </button>
+    </h2>
+  );
+}
+
+export default InfoBar;

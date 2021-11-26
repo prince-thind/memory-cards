@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import _ from "loadsh";
 import uniqid from "uniqid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
 import GameBoard from "./components/GameBoard";
 import icons from "./lib/icons";
 import InfoBar from "./components/InfoBar";
+import StatusBar from "./components/StatusBar";
 
 function App() {
   const [bestScore, setBestScore] = useState(0);
@@ -27,18 +26,8 @@ function App() {
     <div className="App">
       <header>
         <h1 className="heading">Memory Cards</h1>
-        <h2 className="status-bar bar">
-          BestScore: {bestScore} <div>Score: {score} </div>
-          <button
-            className="reset-button"
-            onClick={() => {
-              gameSub("reset");
-            }}
-          >
-            <FontAwesomeIcon icon={faRedo} />
-          </button>
-        </h2>
-        <InfoBar gameStatus={gameStatus} setGameStatus={setGameStatus} />
+        <InfoBar bestScore={bestScore} score={score} gameSub={gameSub} />
+        <StatusBar gameStatus={gameStatus} setGameStatus={setGameStatus} />
       </header>
       <GameBoard
         characterArr={characterArr}
