@@ -14,6 +14,10 @@ function App() {
   const [characterArr, setCharacterArr] = useState(initCharacterArr());
 
   useEffect(() => {
+    gameSub("shuffle");
+  }, []);
+
+  useEffect(() => {
     if (score > bestScore) {
       setBestScore(score);
     }
