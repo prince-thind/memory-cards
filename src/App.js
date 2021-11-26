@@ -3,6 +3,7 @@ import GameBoard from './components/GameBoard';
 import images from './components/images';
 import InfoBar from './components/InfoBar';
 import _ from 'loadsh';
+import uniqid from 'uniqid';
 
 function App() {
   const [bestScore, setBestScore] = useState(0);
@@ -13,7 +14,7 @@ function App() {
   function initCharacterArr() {
     let arr = [];
     for (let i = 0; i < images.length; i++) {
-      arr.push({ src: images[i], key: i });
+      arr.push({ src: images[i], key: uniqid() });
     }
     return arr;
   }
@@ -25,22 +26,22 @@ function App() {
     if (score >= characterArr.length) {
       setGameStatus('won');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [score, bestScore]);
+  }, [score, bestScore, characterArr]);
 
-  useEffect(() => {
-    if (gameStatus === 'lost') {
-      setScore(0);
-    }
-  }, [gameStatus]);
+  // useEffect(() => {
+  //   if (gameStatus === 'lost') {
+  //     setScore(0);
+  //   }
+  // }, [gameStatus]);
 
   function gameSub(signal) {
     if (signal === 'lost') {
       setGameStatus('lost');
+      setScore(0);
       return;
     }
     if (signal === 'increment') {
-      setScore(score + 1);
+      setScore(score=>score+1);
       return;
     }
     if (signal === 'reset') {
@@ -49,7 +50,8 @@ function App() {
       return;
     }
     if (signal === 'shuffle') {
-      setCharacterArr(_.shuffle(characterArr));
+      setCharacterArr(characterArr=>_.shuffle(characterArr));
+      return;
     }
   }
 
