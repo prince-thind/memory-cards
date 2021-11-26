@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import GameBoard from './components/GameBoard';
-import images from './components/images';
-import InfoBar from './components/InfoBar';
-import _ from 'loadsh';
-import uniqid from 'uniqid';
+import { useState, useEffect } from "react";
+import GameBoard from "./components/GameBoard";
+import images from "./components/images";
+import InfoBar from "./components/InfoBar";
+import _ from "loadsh";
+import uniqid from "uniqid";
 
 function App() {
   const [bestScore, setBestScore] = useState(0);
   const [score, setScore] = useState(0);
-  const [gameStatus, setGameStatus] = useState('running');
+  const [gameStatus, setGameStatus] = useState("running");
   const [characterArr, setCharacterArr] = useState(initCharacterArr());
 
   function initCharacterArr() {
@@ -24,7 +24,7 @@ function App() {
       setBestScore(score);
     }
     if (score >= characterArr.length) {
-      setGameStatus('won');
+      setGameStatus("won");
     }
   }, [score, bestScore, characterArr]);
 
@@ -35,22 +35,22 @@ function App() {
   // }, [gameStatus]);
 
   function gameSub(signal) {
-    if (signal === 'lost') {
-      setGameStatus('lost');
+    if (signal === "lost") {
+      setGameStatus("lost");
       setScore(0);
       return;
     }
-    if (signal === 'increment') {
-      setScore(score=>score+1);
+    if (signal === "increment") {
+      setScore((score) => score + 1);
       return;
     }
-    if (signal === 'reset') {
+    if (signal === "reset") {
       setScore(0);
-      setGameStatus('running');
+      setGameStatus("running");
       return;
     }
-    if (signal === 'shuffle') {
-      setCharacterArr(characterArr=>_.shuffle(characterArr));
+    if (signal === "shuffle") {
+      setCharacterArr((characterArr) => _.shuffle(characterArr));
       return;
     }
   }
@@ -60,11 +60,11 @@ function App() {
       <header>
         <h1 className="heading">Memory Cards</h1>
         <h2 className="status-bar bar">
-          Score: {score} | BestScore: {bestScore}
+         BestScore: {bestScore} <div>Score: {score}  </div>
           <button
             className="reset-button"
             onClick={() => {
-              gameSub('reset');
+              gameSub("reset");
             }}
           >
             Reset
