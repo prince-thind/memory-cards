@@ -1,2 +1,2 @@
-# react-memory-card
-simple memory card game made using react
+# memory-cards
+simple memory cards game made using react
