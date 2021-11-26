@@ -1,18 +1,18 @@
-import React from 'react';
-import CharacterCard from './CharacterCard';
+import React from "react";
+import CharacterCard from "./CharacterCard";
 
 function GameBoard(props) {
   return (
     <React.Fragment>
       <div className="gameboard">
-        {props.characterArr.map((e) => {
+        {props.characterArr.map((character) => {
           return (
             <CharacterCard
-              key={e.key}
-              name={e.name}
+              key={character.key}
+              name={character.name}
               gameStatus={props.gameStatus}
               gameSub={props.gameSub}
-              icon={e.icon}
+              icon={character.icon}
             />
           );
         })}

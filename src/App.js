@@ -42,30 +42,30 @@ function App() {
   );
 
   function gameSub(signal) {
-    if (signal === "lost") {
-      setGameStatus("lost");
-      setScore(0);
-      return;
-    }
-    if (signal === "increment") {
-      setScore((score) => score + 1);
-      return;
-    }
-    if (signal === "reset") {
-      setScore(0);
-      setGameStatus("running");
-      return;
-    }
-    if (signal === "shuffle") {
-      setCharacterArr((characterArr) => _.shuffle(characterArr));
-      return;
+    switch (signal) {
+      case "shuffle":
+        setCharacterArr((characterArr) => _.shuffle(characterArr));
+        return;
+      case "increment":
+        setScore((score) => score + 1);
+        return;
+      case "lost":
+        setGameStatus("lost");
+        setScore(0);
+        return;
+      case "reset":
+        setScore(0);
+        setGameStatus("running");
+        return;
+
+      default:
+        return;
     }
   }
-
   function initCharacterArr() {
     let arr = [];
     for (let i = 0; i < icons.length; i++) {
-      arr.push({ icon: icons[i], key: uniqid() });
+      arr.push({ icon: icons[i], key: uniqid(), name: icons[i].iconName });
     }
     return arr;
   }
