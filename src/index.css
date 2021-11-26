@@ -6,14 +6,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   text-align: center;
   color: white;
   background-color: rgb(10, 10, 10);
 }
-main{
-  flex:1;
+main {
+  flex: 1;
 }
 
 .heading {
@@ -39,11 +37,9 @@ main{
   align-items: center;
   flex-direction: column;
   background-color: hsla(0, 0%, 100%, 50%);
-  /* color:black; */
   font-size: 3rem;
 }
 .status {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,10 +58,8 @@ main{
   padding: 0.5em;
   font-size: 1.1rem;
   background-color: rgb(66, 56, 21);
-  /* margin-left: 5rem; */
   color: white;
   margin: 0.5rem;
-  /* float: right; */
 }
 .left-margin {
   margin-left: auto;
@@ -86,7 +80,6 @@ main{
   background-color: hsl(120, 70%, 10%);
   font-size: 5rem;
   padding: 1rem;
-  width: fit-content;
   border: 2px solid black;
 }
 .character:hover {
@@ -94,9 +87,9 @@ main{
   background-color: hsl(120, 70%, 15%);
   cursor: pointer;
 }
-.footer{
+.footer {
   background-color: black;
-  padding:0.5rem;
+  padding: 0.5rem;
   border-top: 2px solid white;
 }
 
@@ -106,7 +99,6 @@ main{
     font-size: 4rem;
   }
   .info-bar {
-    /* bottom: 0; */
     position: static;
   }
 }
