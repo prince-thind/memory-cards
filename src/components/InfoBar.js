@@ -3,10 +3,10 @@ import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
 function InfoBar({ bestScore, score, gameSub }) {
   return (
-    <h2 className="status-bar bar">
+    <h2 className="info-bar">
       BestScore: {bestScore} <div>Score: {score} </div>
       <button
-        className="reset-button"
+        className="reset-button left-margin"
         onClick={() => {
           gameSub("reset");
         }}

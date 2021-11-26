@@ -5,7 +5,7 @@ import uniqid from "uniqid";
 import GameBoard from "./components/GameBoard";
 import icons from "./lib/icons";
 import InfoBar from "./components/InfoBar";
-import StatusBar from "./components/StatusBar";
+import Status from "./components/Status";
 
 function App() {
   const [bestScore, setBestScore] = useState(0);
@@ -31,7 +31,7 @@ function App() {
       <header>
         <h1 className="heading">Memory Cards</h1>
         <InfoBar bestScore={bestScore} score={score} gameSub={gameSub} />
-        <StatusBar gameStatus={gameStatus} setGameStatus={setGameStatus} />
+        <Status gameStatus={gameStatus} setGameStatus={setGameStatus} gameSub={gameSub} />
       </header>
       <GameBoard
         characterArr={characterArr}
@@ -56,6 +56,7 @@ function App() {
       case "reset":
         setScore(0);
         setGameStatus("running");
+        setCharacterArr((characterArr) => _.shuffle(characterArr));
         return;
 
       default:
