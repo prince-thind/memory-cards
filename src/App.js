@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import _ from "loadsh";
+import _ from "lodash";
 import uniqid from "uniqid";
 
 import GameBoard from "./components/GameBoard";

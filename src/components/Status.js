@@ -18,7 +18,9 @@ function Status(props) {
         </div>
       </section>
     );
-  } else if (props.gameStatus === "won") {
+  }
+
+  if (props.gameStatus === "won") {
     return (
       <section className="status-modal">
         <div className="status win">
@@ -34,7 +36,8 @@ function Status(props) {
         </div>
       </section>
     );
-  } else return null;
+  }
+  return null;
 }
 
 export default Status;
